@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-run-hikka:
+  run-hikka:
     runs-on: ubuntu-latest
     steps:
       - name: Update and install dependencies
@@ -17,7 +17,5 @@ jobs:
         run: git clone https://github.com/hikariatama/Hikka
       - name: Change directory to Hikka
         run: cd Hikka
-      - name: Install Hikka dependencies
-        run: pip install -r requirements.txt
       - name: Run Hikka
         run: python3 -m hikka
