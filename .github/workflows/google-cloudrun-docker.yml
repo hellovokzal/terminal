@@ -1,4 +1,4 @@
-name: Python Terminal
+name: Hikka
 
 on:
   push:
@@ -7,16 +7,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-python-terminal:
+  build-and-run-hikka:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'  # Замените '3.9' на нужную версию Python
-
-      - name: Run Python terminal.py
-        run: python terminal.py 
+      - name: Update and install dependencies
+        run: |
+          sudo apt update && sudo apt install git libcairo2 -y
+      - name: Clone Hikka repository
+        run: git clone https://github.com/hikariatama/Hikka
+      - name: Change directory to Hikka
+        run: cd Hikka
+      - name: Install Hikka dependencies
+        run: pip install -r requirements.txt
+      - name: Run Hikka
+        run: python3 -m hikka
