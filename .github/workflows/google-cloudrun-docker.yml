@@ -15,7 +15,5 @@ jobs:
           sudo apt update && sudo apt install git libcairo2 -y
       - name: Clone Hikka repository
         run: git clone https://github.com/hikariatama/Hikka
-      - name: Change directory to Hikka
-        run: cd Hikka
       - name: Run Hikka
-        run: python3 -m hikka
+        run: python3 -m Hikka/hikka
